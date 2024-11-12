@@ -50,7 +50,7 @@ class NotionExporter():
         documents = []
         for page_id, page in extracted_pages.items():
             metadata, markdown_text = frontmatter.parse(page, handler=custom_yaml_handler)
-            document = Document(meta=metadata, content=markdown_text)
+            document = Document(id=page_id, meta=metadata, content=markdown_text)
             documents.append(document)
 
         return {"documents": documents}
